@@ -1,0 +1,51 @@
+body{
+    background-color: rgb(23, 117, 37);
+    margin: 0px;
+}
+
+.MAINCONT{
+    position: relative;
+    top: 10vh;
+    height: 80vh;
+    width: 100vw;
+    background-color: rgb(48, 161, 65);
+}
+
+.advL{
+    position: relative;
+left: 0vw;
+top: -10vh;
+height: 100vh;
+width: 20vw;
+background-color: antiquewhite;
+}
+
+.advR{
+    position: relative;
+    left: 80vw;
+    top: -182vh;
+    height: 100vh;
+    width: 20vw;
+    background-color: antiquewhite;
+    }
+
+.MAINGRID{
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(17, 1fr); 
+    grid-template-rows: repeat(17, 1fr);    
+    top: -95vh;
+    left: 24.5vw;
+    height: 71vh;
+    width: 51vw;
+}
+
+.MAINGRID .tile:nth-child(odd){background-color: rgb(90, 187, 90);}
+.MAINGRID .tile:nth-child(even){background-color: rgb(142, 255, 142);}
+
+.tile{   
+    background-color: rgb(87, 250, 111);
+    width: 100%;
+    height: 100%;
+
+}

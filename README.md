@@ -1,2 +1,2 @@
 # Projekt_na_psi
-Snake
+A repository for a small project for school
