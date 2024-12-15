@@ -1,6 +1,6 @@
 const width=17;
 const height=17;
-const BlockSize=20;
+const BlockSize=32;
 const SnakeColor="blue"
 const FoodColor="red"
 const SnakeBodyColor="cyan"
@@ -74,7 +74,7 @@ function update()
     }
     
 
-    if (snakeX < 0 || snakeX > width*BlockSize || snakeY < 0 || snakeY > height*BlockSize) {
+    if (snakeX < 0 || snakeX > (width-1)*BlockSize || snakeY < 0 || snakeY > height*BlockSize) {
         gameOver = true;
         alert("Game Over");
     }
