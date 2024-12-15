@@ -40,6 +40,15 @@ background-color: antiquewhite;
     width: 51vw;
 }
 
+canvas
+{
+    position: absolute;
+        top: 5vh;
+        left: 24.5vw;
+        z-index: 2;
+}
+
+
 .MAINGRID .tile:nth-child(odd){background-color: rgb(90, 187, 90);}
 .MAINGRID .tile:nth-child(even){background-color: rgb(142, 255, 142);}
 
