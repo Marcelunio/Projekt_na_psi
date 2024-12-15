@@ -8,11 +8,14 @@
     <title>SNAKE czy cos</title> 
 </head>
 <body>
-    <script src="javascript/snake.js"></script>
+    <div style="display: none;">
+    <img src="Images/Body.png" >
+</div>
+    <script src="javascript/snake.js" id="sbody" height="32" width="32"></script>
     <div class="MAINCONT">
         <div class="advL"></div>
 
-        <canvas class="canvas" id="canvas" style="border:1px solid #000000;width: 51vw; height: 71vh;">
+        <canvas class="canvas" id="canvas" >
         </canvas>
          <div class="MAINGRID" id="game-grid">
             <!-- Tiles will be dynamically inserted here by JavaScript --> 

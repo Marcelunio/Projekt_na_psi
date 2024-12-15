@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('game-grid');
 

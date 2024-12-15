@@ -46,6 +46,10 @@ canvas
         top: 5vh;
         left: 24.5vw;
         z-index: 2;
+    margin:0;
+    padding: 0;
+    width: 51vw; 
+    height: 71vh;
 }
 
 
