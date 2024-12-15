@@ -74,7 +74,7 @@ function update()
     }
     
 
-    if (snakeX < 0 || snakeX > (width-1)*BlockSize || snakeY < 0 || snakeY > height*BlockSize) {
+    if (snakeX < 0 || snakeX > (width-1)*BlockSize || snakeY < 0 || snakeY > (height-1)*BlockSize) {
         gameOver = true;
         alert("Game Over");
     }
