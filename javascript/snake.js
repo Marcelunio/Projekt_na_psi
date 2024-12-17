@@ -25,6 +25,10 @@ var tailV=new Image()
 tailV.src="./Images/tail-v.png"
 
 
+var Apple=new Image()
+Apple.src="./Images/Jablko.png"
+
+
 
 
 
@@ -59,7 +63,7 @@ window.onload=function()
     context=canvas.getContext("2d");
     placefood();
     document.addEventListener("keyup",changeDirection);
-    game=setInterval(update,delay);
+    setInterval(update,delay);
 
 }
 
@@ -70,8 +74,8 @@ function update()
     context.clearRect(0,0,width*BlockSize,height*BlockSize);
     
     context.fillStyle=FoodColor
-    context.fillRect(foodX,foodY,BlockSize,BlockSize)
-    
+    //context.fillRect(foodX,foodY,BlockSize,BlockSize)
+    context.drawImage(Apple,foodX,foodY)
     if(snakeX==foodX && snakeY==foodY)
         {
             snakeBody.push([foodX,foodY]);
@@ -90,9 +94,7 @@ function update()
     snakeY+=dy*BlockSize;
  
     context.fillStyle=SnakeColor;
-    //context.fillRect(snakeX,snakeY,BlockSize,BlockSize)
-   //context.drawImage(head,snakeX,snakeY)
-    //flip(turn,snakeX,snakeY,-1,-1);
+
     draw(head,headV,snakeX,snakeY,dx,dy)
 
     context.fillStyle=SnakeBodyColor
