@@ -29,7 +29,7 @@ var Apple=new Image()
 Apple.src="./Images/Jablko.png"
 
 
-
+var score=0;
 
 
 
@@ -43,8 +43,8 @@ var snakeY=BlockSize*Math.floor(height/2);
 var foodX;
 var foodY;
 
-var dx=0;
 var dy=0;
+var dx=0;
 var delay=200;
 
 var snakeBody = [
@@ -55,6 +55,9 @@ var score;
 
 var gameOver=false;
 
+var game;
+var input;
+
 window.onload=function()
 {
     const canvas=document.getElementById("canvas");
@@ -62,24 +65,36 @@ window.onload=function()
     canvas.width=width*BlockSize;
     context=canvas.getContext("2d");
     placefood();
-    document.addEventListener("keyup",changeDirection);
-    setInterval(update,delay);
+    input=document.addEventListener("keyup",changeDirection);
+    game=setInterval(update,delay);
 
 }
 
 function update()
 {
     if(gameOver)
+    {
+        context.fillStyle="rgba(0,0,0,0.7)"
+        context.fillRect(0,0,width*BlockSize,height*BlockSize)
+        context.font = "48px monospace";
+        context.fillStyle="white"
+        context.fillText("Score:",width*BlockSize/2-"Score:".length*24 ,height*BlockSize/2-48 );
+        context.fillText(score*100,width*BlockSize/2-(score.toString().length*48),height*BlockSize/2 );
+        clearInterval(game);
+        removeEventListener("keyup",input);
+        score=0;
         return;
+    }
     context.clearRect(0,0,width*BlockSize,height*BlockSize);
     
-    context.fillStyle=FoodColor
+    
     //context.fillRect(foodX,foodY,BlockSize,BlockSize)
     context.drawImage(Apple,foodX,foodY)
     if(snakeX==foodX && snakeY==foodY)
         {
             snakeBody.push([foodX,foodY]);
             placefood()
+            score++;
         }
  
     for(let i=snakeBody.length-1;i>0;i--)
@@ -93,11 +108,11 @@ function update()
     snakeX+=dx*BlockSize;
     snakeY+=dy*BlockSize;
  
-    context.fillStyle=SnakeColor;
+    //context.fillStyle=SnakeColor;
 
     draw(head,headV,snakeX,snakeY,dx,dy)
 
-    context.fillStyle=SnakeBodyColor
+    //context.fillStyle=SnakeBodyColor
     if(snakeBody.length-1)
     {
         let h1=-(snakeBody[0][0]-snakeX)/BlockSize;
@@ -139,13 +154,13 @@ function update()
 
     if (snakeX < 0 || snakeX > (width-1)*BlockSize || snakeY < 0 || snakeY > (height-1)*BlockSize) {
         gameOver = true;
-        alert("Game Over");
+        //alert("Game Over");
     }
 
     for (let i = 0; i < snakeBody.length; i++) {
         if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
             gameOver = true;
-            alert("Game Over");
+            //alert("Game Over");
         }
     }
     
@@ -242,4 +257,21 @@ function draw(image,imageV,posX,posY,Horizontality,Verticality)
             }
     }
     
+}
+
+function reset()
+{
+    if(gameOver)
+    {
+        gameOver=false
+        snakeX=BlockSize*Math.floor(width/2-1);
+        snakeY=BlockSize*Math.floor(height/2);
+        dy=0;
+        dx=0;
+        
+        snakeBody=[[snakeX-BlockSize,snakeY]]
+        placefood();
+        input=document.addEventListener("keyup",changeDirection);
+        game=setInterval(update,delay);
+    }
 }
