@@ -31,6 +31,7 @@ Apple.src="./Images/Jablko.png"
 
 var score=0;
 
+var going=3;
 
 
 
@@ -105,9 +106,35 @@ function update()
         if(dx!=0||dy!=0)
             snakeBody[0]=[snakeX,snakeY];
 
+
+    
+ 
+    switch(dx)
+    {
+        case 1:
+            going=1;
+            break;
+        case -1:
+            going=3;
+            break;
+        default:
+            switch(dy)
+            {
+                case 1:
+                    going=2;
+                    break;
+                case -1:
+                    going=0;
+                    break;
+                default:
+            }
+            
+    }
+
     snakeX+=dx*BlockSize;
     snakeY+=dy*BlockSize;
- 
+
+
     //context.fillStyle=SnakeColor;
 
     draw(head,headV,snakeX,snakeY,dx,dy)
@@ -187,25 +214,29 @@ function placefood()
 function changeDirection(e)
 {
     
-    if(e.code=="ArrowUp" && dy!=1)
+    if(e.code=="ArrowUp" && going!=2)
     {
         dx=0
         dy=-1;
+        console.log("UP")
     }
-    else if(e.code=="ArrowDown"  && dy!=-1)
+    else if(e.code=="ArrowDown"  && going!=0)
     {
         dx=0;
         dy=1;
+        console.log("DOWN")
     }
-    else if(e.code=="ArrowLeft"  && dx!=1)
+    else if(e.code=="ArrowLeft"  && going!=1)
     {
         dx=-1;
         dy=0;
+        console.log("LEFT")
     }
-    else if(e.code=="ArrowRight"  && dx!=-1)
+    else if(e.code=="ArrowRight"  && going!=3)
     {
         dx=1;
         dy=0;
+        console.log("RIGHT")
     }
 }
 /*
@@ -263,6 +294,7 @@ function reset()
 {
     if(gameOver)
     {
+        going=3;
         gameOver=false
         snakeX=BlockSize*Math.floor(width/2-1);
         snakeY=BlockSize*Math.floor(height/2);
