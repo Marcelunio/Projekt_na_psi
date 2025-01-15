@@ -217,26 +217,22 @@ function changeDirection(e)
     if(e.code=="ArrowUp" && going!=2)
     {
         dx=0
-        dy=-1;
-        console.log("UP")
+        dy=-1; 
     }
     else if(e.code=="ArrowDown"  && going!=0)
     {
         dx=0;
         dy=1;
-        console.log("DOWN")
     }
     else if(e.code=="ArrowLeft"  && going!=1)
     {
         dx=-1;
         dy=0;
-        console.log("LEFT")
     }
     else if(e.code=="ArrowRight"  && going!=3)
     {
         dx=1;
         dy=0;
-        console.log("RIGHT")
     }
 }
 /*
