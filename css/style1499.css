@@ -1,4 +1,4 @@
-@media only screen and (width >= 1500px) /*and ( height > 840px)*/ 
+@media only screen and (1000px < width < 1500px) /*and ( height > 840px)*/
 {
     body{
         background-color: rgb(23, 117, 37);
@@ -31,21 +31,21 @@
         background-color: antiquewhite;
         }
     
-    .MAINGRID{
-        display: grid;
-        position: absolute;
-        grid-template-columns: repeat(17, 1fr); 
-        grid-template-rows: repeat(17, 1fr);    
-        top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+        .MAINGRID{
+            display: grid;
+            position: absolute;
+            grid-template-columns: repeat(17, 1fr); 
+            grid-template-rows: repeat(17, 1fr);    
+            top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
             margin: auto;
-        margin: auto;
-        height: 600px;
-        width: 600px;
-        aspect-ratio: 1 / 1;
-    }
+            height: 500px;
+            width: 500px;
+            aspect-ratio: 1 / 1;
+        }
     
     .MAINGRID .tile:nth-child(odd){background-color: rgb(90, 187, 90);}
     .MAINGRID .tile:nth-child(even){background-color: rgb(142, 255, 142);}
@@ -59,8 +59,8 @@
 
     .canvas{
         border:1px solid #000000;
-            width: 600px; 
-            height: 600px;
+            width: 500px; 
+            height: 500px;
             position: absolute;
             top: 0;
             left: 0;
@@ -71,6 +71,3 @@
             z-index: 2;
     }
 }
-
-
-
